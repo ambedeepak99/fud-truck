@@ -70,7 +70,7 @@ app.factory('Utils', function () {
     }
 
 
-    return{
+    return {
         CONSTANTS: constants,
         STORAGE: storageFunctions,
         SOUNDNOTIFY: soundNotifyFunctions,
@@ -100,20 +100,19 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
          * @param callback
          * @author Prathamesh parab
          */
-        function checkAuthorization(err, callback) {
+        function checkAuthorization(err) {
+            console.log(err.code,typeof err.code);
             if (err.code == 401 || err.code == 402) {
                 createAlert(1, "your session has been expire please try to login again", 3);
-                Utils.STORAGE.deleteStorage("access-token");
+                Utils.STORAGE.deleteStorage("access_token");
                 $location.path('/login');
             } else {
                 createAlert(1, Utils.CONSTANTS.SERVER_ERROR, 3);
-                $location.path('/login');
-                callback(finalResult);
+                //$location.path('/login');
             }
         }
 
-        /**rakesh.s
-         * rash123
+        /**
          * validatelogin - This function is used to validate the user creaditial
          * @param loginInfo
          * @param callback
@@ -125,9 +124,12 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
                 'password': loginInfo.pwd
             };
 
-            var request_config = { headers: {  "Content-Type": 'application/json',
-                "authorization": Utils.STORAGE.getStorage("access_token")
-            } };
+            var request_config = {
+                headers: {
+                    "Content-Type": 'application/json',
+                    "authorization": Utils.STORAGE.getStorage("access_token")
+                }
+            };
 
             $http.post(BASE_URL + "user/signin", post_request, request_config)
                 .success(function (data) {
@@ -135,8 +137,11 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
                     finalResult.response = data;
                     callback(finalResult);
                 }).error(function (err) {
-                    checkAuthorization(err);
-                });
+                checkAuthorization(err);
+                finalResult.success = false;
+                finalResult.response = err;
+                callback(finalResult);
+            });
         };
 
         /**
@@ -153,9 +158,12 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
                 'email': loginInfo.email
             };
 
-            var request_config = { headers: {  "Content-Type": 'application/json',
-                "authorization": Utils.STORAGE.getStorage("access_token")
-            } };
+            var request_config = {
+                headers: {
+                    "Content-Type": 'application/json',
+                    "authorization": Utils.STORAGE.getStorage("access_token")
+                }
+            };
 
             $http.post(BASE_URL + "user/signup", post_request, request_config)
                 .success(function (data) {
@@ -163,8 +171,11 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
                     finalResult.response = data;
                     callback(finalResult);
                 }).error(function (err) {
-                    checkAuthorization(err);
-                });
+                checkAuthorization(err);
+                finalResult.success = false;
+                finalResult.response = err;
+                callback(finalResult);
+            });
         };
 
         /**
@@ -175,9 +186,12 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
          */
 
         function getAllPlaces(loginInfo, callback) {
-            var request_config = { headers: {  "Content-Type": 'application/json',
-                "authorization": Utils.STORAGE.getStorage("access_token")
-            } };
+            var request_config = {
+                headers: {
+                    "Content-Type": 'application/json',
+                    "authorization": Utils.STORAGE.getStorage("access_token")
+                }
+            };
 
             $http.get(BASE_URL + "v1/datasf/getAllData", request_config)
                 .success(function (data) {
@@ -185,8 +199,11 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
                     finalResult.response = data;
                     callback(finalResult);
                 }).error(function (err) {
-                    checkAuthorization(err);
-                });
+                checkAuthorization(err);
+                finalResult.success = false;
+                finalResult.response = err;
+                callback(finalResult);
+            });
         };
 
         /**
@@ -200,9 +217,12 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
 
             var url = "";
 
-            var request_config = { headers: {  "Content-Type": 'application/json',
-                "authorization": Utils.STORAGE.getStorage("access_token")
-            } };
+            var request_config = {
+                headers: {
+                    "Content-Type": 'application/json',
+                    "authorization": Utils.STORAGE.getStorage("access_token")
+                }
+            };
 
             if (coordinates.lat != "" && coordinates.long != "") {
                 //url =BASE_URL+'?$where=within_circle('+ location +')';
@@ -217,8 +237,11 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
                     finalResult.response = data;
                     callback(finalResult);
                 }).error(function (err) {
-                    checkAuthorization(err);
-                });
+                checkAuthorization(err);
+                finalResult.success = false;
+                finalResult.response = err;
+                callback(finalResult);
+            });
         };
 
         /**
@@ -259,7 +282,8 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
                 }, timeout);
             }
         }
-        return{
+
+        return {
             WEBSERVICES: WebServiceFunctions
         }
     }]

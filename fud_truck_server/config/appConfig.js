@@ -13,8 +13,8 @@ var config = {
         basicAlias: "/v1",
         secretKey: "iAmAwesomeFullStackDeveloper",
         cipherAlgorithm:"aes-256-ctr",
-        inactiveTimeFrame: 20,//min
-        forceExpireTimeFrame: 2*60 //min
+        inactiveTimeFrame: 12*60,//min
+        forceExpireTimeFrame: 24*60 //min
     },
     logConfig: {
         datePattern: ".yyyy-MM-dd.HH-mm"

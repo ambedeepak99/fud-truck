@@ -24,19 +24,19 @@ module.exports = function (grunt) {
                     }
                 ]
             },
-            png: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'img/',
-                        src: ['**/*.png'],
-                        dest: 'dist/img/'
-                    }
-                ]
-            },
+            // png: {
+            //     options: {
+            //         progressive: true
+            //     },
+            //     files: [
+            //         {
+            //             expand: true,
+            //             cwd: 'img/',
+            //             src: ['**/*.png'],
+            //             dest: 'dist/img/'
+            //         }
+            //     ]
+            // },
             gif: {
                 options: {
                     progressive: true

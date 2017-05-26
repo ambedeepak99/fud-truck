@@ -227,7 +227,12 @@ function ftruckCtrl($scope, $location, Utils, WebService, $interval) {
                         }
                     }
                     else {
-                        WEBSERVICE.createAlert(1, "Server error found", 3);
+                        if(result.response && result.response.msg){
+                            WEBSERVICE.createAlert(1, result.response.msg, 3);
+                        }
+                        else{
+                            WEBSERVICE.createAlert(1, "Server error found", 3);
+                        }
                         vm.isSearch = false;
                         vm.loading = false;
                     }
@@ -260,7 +265,7 @@ function ftruckCtrl($scope, $location, Utils, WebService, $interval) {
     } else {
         STORAGE.deleteStorage("access_token");
         $location.path('/login');
-        location.reload();
+        //location.reload();
     }
 };
 app.controller('ftruckCtrl', ['$scope', '$location', 'Utils', 'WebService', '$interval', ftruckCtrl]);

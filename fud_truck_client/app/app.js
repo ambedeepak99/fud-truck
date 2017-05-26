@@ -3,7 +3,8 @@
  * @description This file is used to redirect application state e.g. login, mailer etc.
  * @author Prathamesh Parab
  */
-var app = angular.module("done", ["ngRoute", "ui.bootstrap"]);
+
+var app = angular.module("fudTruck", ["ngRoute", "ui.bootstrap"]);
 
 app.config(["$httpProvider", "$routeProvider", function ($httpProvider, $routeProvider) {
     $routeProvider
