@@ -101,15 +101,15 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
          * @author Prathamesh parab
          */
         function checkAuthorization(err) {
-            console.log(err.code,typeof err.code);
-            if (err.code == 401 || err.code == 402) {
-                createAlert(1, "your session has been expire please try to login again", 3);
-                Utils.STORAGE.deleteStorage("access_token");
-                $location.path('/login');
-            } else {
-                createAlert(1, Utils.CONSTANTS.SERVER_ERROR, 3);
-                //$location.path('/login');
-            }
+            if (err)
+                if (err.code == 401 || err.code == 402) {
+                    createAlert(1, "your session has been expire please try to login again", 3);
+                    Utils.STORAGE.deleteStorage("access_token");
+                    $location.path('/login');
+                } else {
+                    createAlert(1, Utils.CONSTANTS.SERVER_ERROR, 3);
+                    //$location.path('/login');
+                }
         }
 
         /**
