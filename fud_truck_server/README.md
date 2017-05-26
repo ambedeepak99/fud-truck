@@ -18,11 +18,9 @@ How to Deploy
 
 You need to have Node, NPM(Node Package Manager) and MongoDb installed on your machine. If you don't have it the please run following commands:
 
-**For Node and NPM**:
-Please follow this [article](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server)
+**For Node and NPM**: Check this [link](https://docs.npmjs.com/getting-started/installing-node)
 
-**For MongoDb**:
-Please follow this [article](https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04)
+**For MongoDb**: Check this [link](https://docs.mongodb.com/manual/administration/install-community/)
 
 --------------------
 **Deploy in Production**:

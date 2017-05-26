@@ -11,9 +11,9 @@ Using data which is available on [DataSF](http://www.datasf.org/): [Food Trucks]
 ---------------
 **Project Dependancy:**
 
-1. **Node and NPM**: Please follow this [article](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server)
-2. **MongoDb**: Please follow this [article](https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04)
-3. **Grunt**: Please follow this [article](https://gruntjs.com/configuring-tasks)
+1. **Node and NPM**: Check this [link](https://docs.npmjs.com/getting-started/installing-node)
+2. **MongoDb**: Check this [link](https://docs.mongodb.com/manual/administration/install-community/)
+3. **Grunt**: Check this [link](https://gruntjs.com/configuring-tasks)
 
 ---------------
 **This Food Truck Service have two part:**
