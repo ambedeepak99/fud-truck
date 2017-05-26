@@ -1,0 +1,14 @@
+List of Contributors
+====================
+
+The below are contributors to a code repository that is part of the
+project named "fud-truck". 
+
+Contributors
+------------
+
+- Deepak Ambekar <ambedeepak99@gmail.com>
+
+- Prathamesh Parab <parab.prathamesh514@gmail.com>
+
+- Vineet Vinayakumar <vineet.vinayakumar@gmail.com>
