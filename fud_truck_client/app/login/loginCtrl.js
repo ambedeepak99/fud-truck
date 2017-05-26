@@ -1,12 +1,12 @@
 /**
  * loginCtrl - This controller is used to perform login token based operation
- * @param $scope
- * @param $location
- * @param Utils
- * @param WebService
- * @param $interval
- * @constructor
+ * @param $scope {object} Scope object
+ * @param $location {object} location object
+ * @param Utils {object} Utils object
+ * @param WebService {object} WebService object
+ * @param $interval {object} interval object
  * @author Prathamesh Parab
+ * @constructor
  */
 function loginCtrl($scope, $location, Utils, WebService, $interval) {
 
@@ -33,7 +33,6 @@ function loginCtrl($scope, $location, Utils, WebService, $interval) {
      * submit - This function is used to validate the user creaditial
      * @author Prathamesh Parab
      */
-
     if (!STORAGE.getStorage("access_token")) {
         function submit() {
             if(vm.issignup == true)

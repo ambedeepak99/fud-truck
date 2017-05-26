@@ -1,11 +1,12 @@
 /**
- * ftruckCtrl - This control is used to Find truck location and details of truck
- * @param $scope
- * @param $location
- * @param Utils
- * @param WebService
- * @param $interval
+ * Truck controller - This control is used to Find truck location and details of truck
+ * @param $scope {object} Scope object
+ * @param $location {object} location object
+ * @param Utils {object} Utils object
+ * @param WebService {object} WebService object
+ * @param $interval {object} interval object
  * @author Prathamesh Parab
+ * @constructor
  */
 function ftruckCtrl($scope, $location, Utils, WebService, $interval) {
 
@@ -13,8 +14,7 @@ function ftruckCtrl($scope, $location, Utils, WebService, $interval) {
     var WEBSERVICE = WebService.WEBSERVICES;
     var SOUNDNOTIFY = Utils.SOUNDNOTIFY;
     var STORAGE = Utils.STORAGE;
-
-    if (STORAGE.getStorage("access_token") && STORAGE.getStorage("access_token") != "") {
+    if (STORAGE.getStorage("access_token")) {
         var loginInfo = true;
         vm.loading = false;
         vm.loading_place = true;
@@ -35,7 +35,7 @@ function ftruckCtrl($scope, $location, Utils, WebService, $interval) {
 
         /**
          * getAllPlaces - This service is used to get all places
-         * @param loginInfo
+         * @param loginInfo {object} object of params
          * @author Prathamesh parab
          */
 
@@ -115,7 +115,7 @@ function ftruckCtrl($scope, $location, Utils, WebService, $interval) {
 
         /**
          *getTruckInfo -  This function is used to find the list of trucks avaliable in specific location
-         * @param coordinates
+         * @param coordinates {object} object of lat and lng
          * @author : Prathamesh parab
          */
 

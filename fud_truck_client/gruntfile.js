@@ -1,6 +1,15 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        jsdoc: {
+            dist: {
+                src: ['app/**/*.js', 'readme.md'],
+                options: {
+                    destination: 'api.document',
+                    template : "node_modules/docdash"
+                }
+            }
+        },
         imagemin: {
             jpg: {
                 options: {
@@ -11,7 +20,7 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'img/',
                         src: ['**/*.jpg'],
-                        dest: 'truck-finder/img/'
+                        dest: 'dist/img/'
                     }
                 ]
             },
@@ -24,7 +33,7 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'img/',
                         src: ['**/*.png'],
-                        dest: 'truck-finder/img/'
+                        dest: 'dist/img/'
                     }
                 ]
             },
@@ -37,7 +46,7 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'img/',
                         src: ['**/*.gif'],
-                        dest: 'truck-finder/img/'
+                        dest: 'dist/img/'
                     }
                 ]
             }
@@ -51,7 +60,7 @@ module.exports = function (grunt) {
                     'app/**/*.js', // All JS in the libs folder
 //                    'app/*.js'  // This specific file
                 ],
-                dest: 'truck-finder/js/production.js'
+                dest: 'dist/js/production.js'
             }
         },
 //        uglify: {
@@ -61,17 +70,17 @@ module.exports = function (grunt) {
 //            my_target: {
 //                files: [{
 //                        expand: true,
-//                        cwd: 'truck-finder/js',
+//                        cwd: 'dist/js',
 //                        src: ['production.js'],
-//                        dest: 'truck-finder/js/production.min.js'
+//                        dest: 'dist/js/production.min.js'
 //                    }]
 //            }
 //        },
 
         uglify: {
             build: {
-                src: 'truck-finder/js/production.js',
-                dest: 'truck-finder/js/production.min.js'
+                src: 'dist/js/production.js',
+                dest: 'dist/js/production.min.js'
             }
         },
         less: {
@@ -80,21 +89,21 @@ module.exports = function (grunt) {
             },
             main: {
                 files: {
-                    'truck-finder/css/main.min.css': 'css/main.less'
+                    'dist/css/main.min.css': 'css/main.less'
                 }
             }
         },
         concat_css: {
 //            options: {},
 //            files: {
-//                'truck-finder/css/production.css': ['css/bootstrap.min.css','css/main.css', 'truck-finder/css/main.min.css','css/bootstrap-select.css','css/animate.css'],
+//                'dist/css/production.css': ['css/bootstrap.min.css','css/main.css', 'dist/css/main.min.css','css/bootstrap-select.css','css/animate.css'],
 //            },
             options: {
                 // Task-specific options go here. 
             },
             all: {
-                src: ['css/bootstrap.min.css', 'css/main.css', 'truck-finder/css/main.min.css', 'css/bootstrap-select.css', 'css/animate.css'],
-                dest: "truck-finder/css/production.css"
+                src: ['css/bootstrap.min.css', 'css/main.css', 'dist/css/main.min.css', 'css/bootstrap-select.css', 'css/animate.css'],
+                dest: "dist/css/production.css"
             }
         },
         cssmin: {
@@ -102,9 +111,9 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: 'truck-finder/css/',
+                        cwd: 'dist/css/',
                         src: ['production.css'],
-                        dest: 'truck-finder/css',
+                        dest: 'dist/css',
                         ext: '.min.css'
                     }
                 ]
@@ -116,7 +125,7 @@ module.exports = function (grunt) {
 //                        expand: true,
 //                        cwd: 'css/',
 //                        src: ['*.css', '!*.min.css'],
-//                        dest: 'truck-finder/css',
+//                        dest: 'dist/css',
 //                        ext: '.css'
 //                    }]
 //            }
@@ -127,7 +136,7 @@ module.exports = function (grunt) {
 //            },
 //            main: {
 //                files: {
-//                    'truck-finder/css/main.min.css': 'css/main.less'
+//                    'dist/css/main.min.css': 'css/main.less'
 //                }
 //            }
 //        },
@@ -142,7 +151,7 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'app/',
                         src: ['**/*.html', '**/!*.min.html'],
-                        dest: 'truck-finder/templates',
+                        dest: 'dist/templates',
                         ext: '.html'
                     }
                 ]
@@ -152,18 +161,18 @@ module.exports = function (grunt) {
             main: {
                 files: [
                     // includes files within path
-//                    {expand: true, src: ['script/*'], dest: 'truck-finder/script/', filter: 'isFile'},
+//                    {expand: true, src: ['script/*'], dest: 'dist/script/', filter: 'isFile'},
                     // makes all src relative to cwd
-//                    {expand: true, cwd: 'script/', src: ['**'], dest: 'truck-finderscript/'},
+//                    {expand: true, cwd: 'script/', src: ['**'], dest: 'distscript/'},
                     // flattens results to a single level
 //                    {expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'},
 
                     // includes files within path and its sub-directories
-                    {expand: true, src: ['script/**'], dest: 'truck-finder/'},
+                    {expand: true, src: ['script/**'], dest: 'dist/'},
                     // includes files within path and its sub-directories
-                    {expand: true, src: ['sounds/**'], dest: 'truck-finder/'},
+                    {expand: true, src: ['sounds/**'], dest: 'dist/'},
                     // includes files within path and its sub-directories
-                    {expand: true, src: ['fonts/**'], dest: 'truck-finder/'},
+                    {expand: true, src: ['fonts/**'], dest: 'dist/'},
                 ]
             }
         },
@@ -217,5 +226,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 //    grunt.loadNpmTasks('grunt-contrib-connect');
 
-    grunt.registerTask('default', ['concat', 'uglify', 'less', 'concat_css', 'cssmin', 'htmlmin', 'imagemin','copy']);
+    grunt.loadNpmTasks('grunt-jsdoc');
+
+    grunt.registerTask('default', ['concat', 'uglify', 'less', 'concat_css', 'cssmin', 'htmlmin', 'imagemin','copy', 'jsdoc']);
 };

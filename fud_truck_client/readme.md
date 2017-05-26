@@ -1,4 +1,4 @@
-Welcome to Truck  Finder (Angular Application) !
+Welcome to Truck  Finder (Angular) !
 ===================
 
 This web application facilitated to find different type of food truck is located in specific  location in google map even user can able to check food items as well as applicant name and distance  
@@ -11,17 +11,7 @@ To get you started you can simply clone the truck-finder repository and install 
 
 #### Prerequisites
 
-You need git to clone the truck-finder repository. You can get git from [here](https://git-scm.com/).
-
 We also use a number of Node.js tools to initialize and test truck-finder. You must have Node.js and its package manager (npm) installed. You can get them from [here](https://nodejs.org/en/).
-
-#### Clone truck-finder
-
-Clone the truck-finder repository using git:
-
-> git clone https://github.com/angular/truck-finder.git
-cd truck-finder
-
 
 #### Install Dependencies
 
@@ -45,10 +35,6 @@ Install grunt dependancy from package.json
 
 >- $ npm install
 
-Once grunt installed then you can run following command to deployed project [dom-deployed]
+Once grunt installed then you can run following command to deployed project [dist]
 >- $ grunt     (deployed project)
 >- $ grunt watch (It will watch changes in project and deploy project if changes found)
-
-
-
-

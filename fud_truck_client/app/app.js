@@ -1,6 +1,7 @@
 /**
- * This File is used to redirect applicates state.
- * @author Prathamesh
+ * @namespace app
+ * @description This file is used to redirect application state e.g. login, mailer etc.
+ * @author Prathamesh Parab
  */
 var app = angular.module("done", ["ngRoute", "ui.bootstrap"]);
 

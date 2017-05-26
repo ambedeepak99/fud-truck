@@ -5,7 +5,7 @@
 app.factory('Utils', function () {
 
     var constants = {
-        BASE_URL: "http://10.40.13.71:3001/",
+        BASE_URL: "http://localhost:3001/",
         SERVER_ERROR: "There is no internet connection or server unreachable.",
         SETTING: {
             SOUND_NOTIFY_SETTING_KEY: "SOUNDNOTIFY"
@@ -102,16 +102,18 @@ app.factory('WebService', ['$http', 'Utils', "$location", function ($http, Utils
          */
         function checkAuthorization(err, callback) {
             if (err.code == 401 || err.code == 402) {
-                $location.path('/login');
                 createAlert(1, "your session has been expire please try to login again", 3);
-            } else {
+                Utils.STORAGE.deleteStorage("access-token");
                 $location.path('/login');
+            } else {
                 createAlert(1, Utils.CONSTANTS.SERVER_ERROR, 3);
+                $location.path('/login');
                 callback(finalResult);
             }
         }
 
-        /**
+        /**rakesh.s
+         * rash123
          * validatelogin - This function is used to validate the user creaditial
          * @param loginInfo
          * @param callback

@@ -1,0 +1,13 @@
+{
+  "main": "index.html",
+  "name": "nw-dom",
+  "description": "Truck Finder",
+  "version": "0.1.0",
+  "keywords": [ "Truck Finder", "Truck Finder" ],
+  "window": {
+    "title": "Truck Finder",
+    "toolbar": false,
+    "width": 800,
+    "height": 500
+  }
+}

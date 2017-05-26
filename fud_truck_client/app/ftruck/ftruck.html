@@ -46,10 +46,20 @@
         </div>
     </div>
 </div>
-<img ng-if="vmlogin.loading" id="mySpinner" src="../img/food_truck_new.gif"/>
 
-<div ng-if="vmlogin.loading_place" id="placefinder" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12 text-center emailloading">
-    <div class="card">
+<div ng-if="vmlogin.loading" id="placefinder" class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-12 col-xs-12 text-center">
+    <div class="loading-card">
+        <div class="loader text-center">
+            <img id="" src="../img/food_truck_new.gif"/>
+        </div>
+        <div class="row">
+            <div class="text-center processTxt" role="alert"><span>Finding Truck Please wait...</span></div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="vmlogin.loading_place" id="placefinder" class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-12 col-xs-12 text-center">
+    <div class="loading-card">
         <div class="loader text-center">
             <img src="../img/truck.png"/>
         </div>
