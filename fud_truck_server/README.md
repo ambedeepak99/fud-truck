@@ -46,7 +46,7 @@ API will be running on the port **3001** by default.
 2.  export NODE_ENV=development
  OR
 3.  run the node app with following command
-    ```NODE_ENV=development node app.js```
+    ```NODE_ENV=development nodemon bin/www```
 OR
 4.  add to environment variable(For linux users)
     >* login as super user

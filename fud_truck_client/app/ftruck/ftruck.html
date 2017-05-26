@@ -1,0 +1,65 @@
+<div class="graph" ng-class="(vmlogin.loading || vmlogin.loading_place)? 'showloader':''" ui-view="graph">
+    <div class="loginSection" id="loginSection" ng-if="vmlogin.isSearchMap" >
+        <div class="logout-btn">
+            <div class="col-lg-1 col-md-1 colsm-2 col-xs-2 text-right logOutSection">
+                <a href="#" class="logoutBtn" ng-click="vmlogin.logout()">Logout</a>
+            </div>
+        </div>
+        <div class="col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="row text-center">
+                <h3 class="messagetxt">Location Search</h3>
+            </div>
+            <div class="loginCard">
+                <form name="emailForm" class="form form-inline text-center" id="loginForm" ng-submit="vmlogin.search()">
+                    <div class="row">
+                        <div class="form-group">
+                            <input class="form-control" type='text' ng-model="vmlogin.place"
+                                   typeahead="place as place.label for place in vmlogin.places | filter:$viewValue"
+                                   placeholder="Find Location"/>
+                            <button type="submit" class="btn btn-search">Search</button>
+                            <input type='hidden' ng-model="vmlogin.place.value" id='search_id' value=''/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-class="vmlogin.isSearch? 'showmap':'hidemap'">
+        <div id="map"></div>
+    </div>
+    <div class="" id="searchBox" ng-if="vmlogin.isSearch">
+        <div class="logout-btn">
+            <div class="col-lg-1 col-md-1 colsm-2 col-xs-2 text-right logOutSection">
+                <a href="#" class="logoutBtn" ng-click="vmlogin.logout()">Logout</a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 card text-center">
+            <form name="form" class="form-inline" ui-view="graph" ng-submit="vmlogin.searchMap()" role="form">
+                <div class="form-group search-box">
+                    <input class="form-control" type='text' ng-model="vmlogin.place"
+                           typeahead="place as place.label for place in vmlogin.places | filter:$viewValue"
+                           placeholder="Find Location"/>
+                    <input type='hidden' ng-model="vmlogin.place.value" id='meta_search_ids' value=''/>
+                    <button type="submit" class="btn btn-search">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<img ng-if="vmlogin.loading" id="mySpinner" src="../img/food_truck_new.gif"/>
+
+<div ng-if="vmlogin.loading_place" id="placefinder" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12 text-center emailloading">
+    <div class="card">
+        <div class="loader text-center">
+            <img src="../img/truck.png"/>
+        </div>
+        <div class="row">
+            <div class="text-center processTxt" role="alert"><span>Finding Places Please wait...</span></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="done">
+<head lang="en">
+    <title>Truck Finder</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Truck Finder,Food, Location">
+    <meta name="description" content="Truck Finder used to find food truck using lat long">
+    <meta name="author" content="Truck Finder">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta name="google-site-verification" content="e5BrZsEuuiiOOnblMTnN8235NICFKWEDEQIs9CYEnCA" />-->
+    <link rel="icon" href="img/location-truck-1.png">
+    <!--Style files-->
+    <link rel="stylesheet" type="text/css" href="script/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="script/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="script/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="script/owl.carousel.css"/>
+    <link rel="stylesheet" type="text/css" href="script/hover-min.css"/>
+    <link rel="stylesheet" type="text/css" href="script/nv.d3.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/production.min.css"/>
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/simple-autocomplete.css"/>
+    <link type="text/plain" rel="author" href="humans.txt"/>
+    <!--end-->
+
+</head>
+<body ng-controller="containerCtrl as vmmain">
+<div id="alert-container">
+    <div data-alert id="myAlert" class="alert-box alert-msg radius" style="display: none;">
+        <span class="alert-message">Alert!</span>
+        <!--<a class="close">&times;</a>-->
+    </div>
+    <div data-alert id="myWarning" class="alert-box warning-msg radius" style="display: none;">
+        <span class="alert-message">Alert!</span>
+        <!--<a class="close">&times;</a>-->
+    </div>
+    <div data-alert id="myAlertSuccess" class="alert-box success-msg radius" style="display: none;">
+        <span class="alert-message">Alert!</span>
+        <!--<a class="close">&times;</a>-->
+    </div>
+</div>
+
+<div class="mainView" ng-view ng-cloak></div>
+
+<!--Audio Files-->
+
+<audio id="startTruckTone" src="sounds/truck-notify.wav" preload="auto" controls   ng-hide="true"></audio>
+
+<!--end-->
+
+<!--Script Files-->
+<script type="text/javascript" src="script/angular.min.js"></script>
+<script type="text/javascript" src="script/angular-route.js"></script>
+<script type="text/javascript" src="script/angular-animate.js"></script>
+<script type="text/javascript" src="script/ui-bootstrap-tpls-0.7.0.js"></script>
+<script type="text/javascript" src="script/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="script/bootstrap.min.js"></script>
+<script type="text/javascript" src="script/owl.carousel.min.js"></script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLTnFRTkOlnkaw8VPpM4wY5-fTkO-A0GM&sensor=false&libraries=geometry">
+</script>
+<script type="text/javascript" src="script/simple-autocomplete.js"></script>
+<script type="text/javascript" src="script/highcharts.js"></script>
+<script type="text/javascript" src="js/production.min.js"></script>
+<!--end-->
+
+</body>
+</html>
